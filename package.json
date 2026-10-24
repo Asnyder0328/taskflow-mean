@@ -1,0 +1,13 @@
+{
+  "name": "taskflow-mean",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TaskFlow — full-stack task manager built on the MEAN stack (MongoDB, Express, Angular, Node.js)",
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "dev:api": "cd backend && npm run dev",
+    "dev:web": "cd frontend && npm start",
+    "seed": "cd backend && npm run seed",
+    "test:api": "cd backend && npm test"
+  }
+}

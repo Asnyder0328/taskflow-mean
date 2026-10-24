@@ -1,0 +1,17 @@
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const morgan = require('morgan');
+const connectDB = require('./src/config/db');
+const app = express();
+app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:4200', credentials: true }));
+app.use(express.json());
+if(process.env.NODE_ENV !== 'test') app.use(morgan('dev'));
+app.get('/api/health', (req,res)=> res.json({ success:true, status:'ok', stack:'MEAN', timestamp:new Date().toISOString() }));
+app.use('/api/auth', require('./src/routes/auth'));
+app.use('/api/tasks', require('./src/routes/tasks'));
+app.use((req,res)=> res.status(404).json({ success:false, message:'Route not found' }));
+app.use((err,req,res,next)=>{ console.error(err); res.status(500).json({ success:false, message: err.message || 'Server error' }); });
+const PORT = process.env.PORT || 5000;
+connectDB().then(()=> app.listen(PORT, ()=> console.log(`🚀 API running on http://localhost:${PORT}`)));
+module.exports = app;

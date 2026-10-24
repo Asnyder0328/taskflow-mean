@@ -1,0 +1,4 @@
+*{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:#f8fafc;color:#0f172a}
+button{cursor:pointer} input,select,textarea{font:inherit}
+.badge{padding:2px 8px;border-radius:999px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.badge-urgent{background:#fee2e2;color:#b91c1c}.badge-high{background:#ffedd5;color:#c2410c}.badge-medium{background:#fef9c3;color:#a16207}.badge-low{background:#dcfce7;color:#15803d}
